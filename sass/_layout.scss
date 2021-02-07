@@ -1,0 +1,91 @@
+/* GRID LAYOUT */
+
+.container {
+  font-family: var(--mont);
+  font-weight: 600;
+  margin: 5rem 24rem;
+  display: grid;
+  grid-template-columns:
+    repeat(2, [col-start] 1fr [col-end]) 10rem
+    [card-start] 1.5fr [card-end];
+  grid-template-rows: repeat(5, min-content);
+
+  /* MOBILE 1200PX */
+
+  @media only screen and (max-width: $bp-largest) {
+    margin: 2.5rem 5rem;
+  }
+
+  /* MOBILE 900PX */
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-columns:
+      repeat(2, [col-start] 1fr [col-end]) 2.5rem
+      [card-start] 1.5fr [card-end];
+  }
+
+  /* MOBILE 600PX */
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem 0;
+    margin: 2rem;
+  }
+
+  /* H1 STYLE */
+
+  &__heading-1 {
+    font-size: 3.6rem;
+    line-height: 4.4rem;
+    color: var(--color-grey-1);
+    margin-bottom: 5rem;
+    grid-column: col-start 1 / col-end 2;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 2;
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* FORM */
+
+.form {
+  grid-column: col-start 1 / col-end 2;
+  grid-row: 2 / -1;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / 2;
+    grid-row: 4 / -1;
+  }
+}
+
+/* SIDE CARD */
+
+.card {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  grid-column: card-start 1 / card-end 2;
+  grid-row: 2 / 4;
+
+  /* MOBILE 600PX */
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / 2;
+  }
+}
+
+/* FOOTER */
+
+.footer {
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: #a9a9a9;
+  display: flex;
+  justify-content: center;
+  grid-column: 1 / -1;
+  margin-top: 5rem;
+}
